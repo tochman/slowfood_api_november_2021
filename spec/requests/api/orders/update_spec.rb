@@ -5,7 +5,7 @@
 RSpec.describe 'PUT /api/orders/:id', type: :request do
 
   subject { response }
-  
+
   let(:product_1) { create(:product, name: 'Pizza') }
   let(:product_2) { create(:product, name: 'Kebab') }
   let(:order) { create(:order) }
@@ -21,6 +21,7 @@ RSpec.describe 'PUT /api/orders/:id', type: :request do
 
   it 'is expected to respond with a message' do
     response_body = JSON.parse(response.body)
+    binding.pry
     expect(response_body['message']).to eq "Kebab was added to your order"
   end
 
